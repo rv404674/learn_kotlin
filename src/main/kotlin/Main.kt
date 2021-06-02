@@ -1,6 +1,6 @@
 var greeting: String = "GOod Morning"
 
-// NOTE: by default all types are non null. To put a null, you need to put a ?
+// NOTE: by default in kotlin all types are non null. To put a null, you need to put a ?
 // var curse_word: String? = null
 var firstName: String? = "Rahul"
 
