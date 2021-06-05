@@ -1,3 +1,9 @@
+fun sayHello(greeting:String, itemsToGreet:List<String>){
+    itemsToGreet.forEach { item ->
+        println("$greeting $item")
+    }
+}
+
 fun main(){
     val interestingThings = arrayOf("Rahul", "Verma", "Sachin", "Verma");
     println(interestingThings.size)
@@ -20,7 +26,9 @@ fun main(){
     }
 
     // List
-    val places = listOf("Canberra", "Istnabul", "NewDelhi")
+    val places = listOf("Canberra", "Istanbul", "NewDelhi")
+    sayHello("Hi", places)
+
     places.forEach { place ->
         println(place)
     }
