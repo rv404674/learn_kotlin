@@ -6,6 +6,9 @@ fun greetUsingVararg(greeting:String, vararg itemsToGreet:String){
     }
 }
 
+// Default Argument
+fun greetUsingNamedArg(greeting:String = "Hello", name:String = "Rahul") = println("$greeting $name")
+
 fun main() {
     val names = arrayOf("Rahul", "Sachin", "Chotu")
     // in greetUsingVararg function, we will iterate over (ruby, oreo)
@@ -17,4 +20,16 @@ fun main() {
 
     // NOTE: Use spread operator - *
     greetUsingVararg("good morning", *names)
+    greetUsingVararg(itemsToGreet = *names, greeting = "Hi")
+
+    // NOTE: Named Argument
+    // In code review it becomes difficult to know the order in which arguments are passed. IDE is making it easy
+    // for us.
+    greetUsingNamedArg("hello", "sachin")
+    // Using named argument down, we can even change order in which arguments are passed.
+    greetUsingNamedArg(name="sachin", greeting = "hello")
+
+    // NOTE: Default argument
+    greetUsingNamedArg(name="sachin")
+    greetUsingNamedArg()
 }
