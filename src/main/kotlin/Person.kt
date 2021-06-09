@@ -21,13 +21,29 @@ class Person(_firstName: String, _lastName: String){
 }
 
 class PersonNew(val firstName:String = "Sachin", val lastName: String = "Verma"){
+    // NOTE:
+    /**
+     * properties in kotlin will get getters and setters generated for them automatically.
+     * for val -> getters
+     * for var -> getters + setters.
+     */
+    var address:String? = null
+        set(value) {
+            field = value
+            println("the new address is $value")
+        }
+        get() {
+            println("returned value is $field")
+            return field
+        }
+
 
     // NOTE: init blocks will always be running before the secondary constructor.
     init {
         println("init1")
     }
 
-    // thiis is how you can use a constrguctor
+    // this is how you can use a constructor
 //    constructor(): this("Sachin", "Verma"){
 //        println("constructor of PersonNew called")
 //    }
@@ -47,7 +63,15 @@ fun main(){
     println(person.lastName)
 
     val person2 = PersonNew("Rahul", "Verma")
-    val person3 = PersonNew()
+    // person2.firstName = "Ruby"
+    // sort of setter
+    person2.address = "london, Uk"
+    person2.address = "dublin, ireland"
+    println(person2.address)
+
 
     // init1, init2, constructor
+    // NOTE: you can set the value
+    // i.e you cant do this
+    // person2.firstName = "Ruby"
 }
