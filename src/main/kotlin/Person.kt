@@ -37,6 +37,14 @@ class PersonNew(val firstName:String = "Sachin", val lastName: String = "Verma")
             return field
         }
 
+    fun printInfo(){
+        // val printAddress = if(address!=null) address else "Unknown Address"
+        // NOTE: Elvis operator
+        // it is basically saying if address is not null, return address, else return "Unknown Address"
+        val printAddress = address ?: "Unknown Address"
+        println("firstName:$firstName  lastName:$lastName  address:$printAddress")
+    }
+
 
     // NOTE: init blocks will always be running before the secondary constructor.
     init {
@@ -59,16 +67,18 @@ fun main(){
     // NOTE: We dont need to use new in Kotlin
     val person = Person(_firstName = "Rahul", _lastName = "Verma")
     // property reference syntax
-    println(person.firstName)
-    println(person.lastName)
+//    println(person.firstName)
+//    println(person.lastName)
 
-    val person2 = PersonNew("Rahul", "Verma")
+    val person2 = PersonNew()
     // person2.firstName = "Ruby"
     // sort of setter
-    person2.address = "london, Uk"
-    person2.address = "dublin, ireland"
-    println(person2.address)
+//    person2.address = "london, Uk"
+//    person2.address = "dublin, ireland"
+//    println(person2.address)
 
+    val person3 = PersonNew()
+    person2.printInfo()
 
     // init1, init2, constructor
     // NOTE: you can set the value
