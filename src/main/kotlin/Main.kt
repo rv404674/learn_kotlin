@@ -19,5 +19,6 @@ fun main(){
     // NOTE: kotlin can infer a variable type as well.
     val shortcutName = "Shortcut Declaration"
     println(shortcutName)
+
 }
 
