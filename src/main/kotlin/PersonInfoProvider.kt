@@ -9,7 +9,7 @@ interface PersonInfoProvider {
 }
 
 interface SessionInfoProvider {
-    fun sessionInfo(): String
+    fun getSessionId(): String
 }
 
 // NOTE: BasicInfoProvider implements PersonInfoProvider
@@ -22,7 +22,7 @@ class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider{
         println("additional print statement")
     }
 
-    override fun sessionInfo(): String {
+    override fun getSessionId(): String {
         return "SessionId - 1234"
 
     }
@@ -31,5 +31,18 @@ class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider{
 fun main(){
     val basicInfoProvider = BasicInfoProvider()
     basicInfoProvider.printInfo(PersonNew())
-    basicInfoProvider.sessionInfo()
+    basicInfoProvider.getSessionId()
+
+    checkTypes(basicInfoProvider)
+}
+
+fun checkTypes(infoProvider: PersonInfoProvider){
+    if (infoProvider is SessionInfoProvider){
+        println("is a session info provider")
+        // NOTE: here compiler is automatically figuring out that infoProvider is a type of sessionInfoProvider
+        // (infoProvider as SessionInfoProvider).getSessionId()
+        infoProvider.getSessionId()
+    } else{
+        println("is not a session info provider")
+    }
 }
