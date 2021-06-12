@@ -20,6 +20,11 @@ class Person(_firstName: String, _lastName: String){
 
 }
 
+// NOTE:
+// by default classes, methods, properties everything is public.
+// internal - public within the module/package
+// private - is only available within the same file.
+// protected - in that class or in the subclass.
 class PersonNew(val firstName:String = "Sachin", val lastName: String = "Verma"){
     // NOTE:
     /**
@@ -27,7 +32,7 @@ class PersonNew(val firstName:String = "Sachin", val lastName: String = "Verma")
      * for val -> getters
      * for var -> getters + setters.
      */
-    var address:String? = null
+     var address:String? = null
         set(value) {
             field = value
             println("the new address is $value")
@@ -84,4 +89,7 @@ fun main(){
     // NOTE: you can set the value
     // i.e you cant do this
     // person2.firstName = "Ruby"
+    // as firstName is a val
+
+
 }
