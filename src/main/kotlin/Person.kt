@@ -52,18 +52,18 @@ class PersonNew(val firstName:String = "Sachin", val lastName: String = "Verma")
 
 
     // NOTE: init blocks will always be running before the secondary constructor.
-    init {
-        println("init1")
-    }
+//    init {
+//        println("init1")
+//    }
 
     // this is how you can use a constructor
 //    constructor(): this("Sachin", "Verma"){
 //        println("constructor of PersonNew called")
 //    }
 
-    init{
-        println("init2")
-    }
+//    init{
+//        println("init2")
+//    }
 
 }
 
