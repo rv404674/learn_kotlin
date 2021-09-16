@@ -1,8 +1,19 @@
-var greeting: String = "GOod Morning"
+import java.lang.IllegalArgumentException
+
+var greeting: String = "Good Morning"
 
 // NOTE: by default in kotlin all types are non null. To put a null, you need to put a ?
 // var curse_word: String? = null
 var firstName: String? = "Rahul"
+
+fun failWithWrongAge(age: Int?): Nothing{
+    throw IllegalArgumentException("Wrong: Age $age")
+}
+
+fun checkAge(age: Int?){
+    if (age == null || age !in 0..150) failWithWrongAge(age)
+    println("Congrats| {$age}")
+}
 
 fun main(){
     println("hello kotlin")
@@ -19,6 +30,10 @@ fun main(){
     // NOTE: kotlin can infer a variable type as well.
     val shortcutName = "Shortcut Declaration"
     println(shortcutName)
+
+    println("*** NOTHING TYPE***")
+    checkAge(null)
+    println("CHECKING SOMETHING")
 
 }
 
