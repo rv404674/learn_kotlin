@@ -9,11 +9,12 @@ fun main() {
 
     println("Main Program starts: ${Thread.currentThread().name}")
 
-    // start a background thread. (worker thread)
-    // NOTE: Both of them are running in || and independent of each other.
-    // NOTE: The application wont wait for the couroutine to complete.
+    // NOTE: by default The application wont wait for the couroutine to complete.
+    // start coroutines on background thread. (worker thread)
     GlobalScope.launch {
         println("Fake work starts: ${Thread.currentThread().name}")
+
+        // NOTE: this will block all the other coroutines running inside the thread.
         Thread.sleep(2000) // Pretend some fake work, file upload maybe
         println("Fake work ended: ${Thread.currentThread().name}")
     }
