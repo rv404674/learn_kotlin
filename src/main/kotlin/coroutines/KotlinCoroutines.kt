@@ -21,9 +21,14 @@ fun main() {
             // delay/suspend functoin
         }
 
-        delay(4000)
+        delay(4000) //main thread.
 
         println("Main Program ended: ${Thread.currentThread().name}")
     }
 
+}
+
+// you can write your own suspend function as well
+suspend fun waitTime(time: Long){
+    delay(time)
 }
