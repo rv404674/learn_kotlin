@@ -8,6 +8,7 @@ fun main() = runBlocking {
     println("Main program starts: ${Thread.currentThread().name}")
 
     // NOTE: use async when you want to do something with the result.
+    // Deferred, 
     val jobDeffered: Deferred<String> = async {
         println("Fake work starts: ${Thread.currentThread().name}")
         delay(1000)
@@ -19,4 +20,8 @@ fun main() = runBlocking {
     // await and join are suspending function.
     val name: String = jobDeffered.await()
     println(name)
+}
+
+suspend fun myOwnSuspendingFunc(){
+    delay(1000)
 }
